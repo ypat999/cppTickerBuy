@@ -44,6 +44,7 @@ def login_tab():
             try:
                 configDB.insert("cookie_path", filepath)
                 global_cookieManager.db = KVDatabase(filepath)
+                main_request.refresh_cookies()
                 name = main_request.get_request_name()
                 yield [gr.update(value="导入成功"), gr.update(value=name), gr.update(value=configDB.get("cookie_path"))]
             except Exception:
@@ -58,6 +59,7 @@ def login_tab():
                    gr.update(value=configDB.get("cookie_path"))]
             try:
                 main_request.cookieManager.get_cookies_str_force()
+                main_request.refresh_cookies()
                 name = main_request.get_request_name()
                 yield [f"登录成功", gr.update(value=name), gr.update(value=configDB.get("cookie_path"))]
             except Exception:
@@ -88,7 +90,7 @@ def login_tab():
             value=configDB.get("pushplusToken") if configDB.get("pushplusToken") is not None else "",
             label="PushPlus的Token",
             interactive=True,
-            info="https://www.pushplus.plus/",
+            info="https://www.pushplus.plus/"
         )
 
         def inner_input_serverchan(x):

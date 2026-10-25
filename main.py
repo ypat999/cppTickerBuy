@@ -9,6 +9,8 @@ from tab.order import order_tab
 from tab.problems import problems_tab
 from tab.settings import setting_tab
 
+#CP30_URL="https://www.allcpp.cn/allcpp/event/event.do?event=1729"
+
 header = """
 # CPP 抢票🌈
 

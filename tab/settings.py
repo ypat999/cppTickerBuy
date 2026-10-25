@@ -157,6 +157,7 @@ def setting_tab():
             label="想要抢票的网址",
             interactive=True,
             info="例如：https://www.allcpp.cn/allcpp/event/event.do?event=3163",
+            value="https://www.allcpp.cn/allcpp/event/event.do?event=1729"
         )
         ticket_id_btn = gr.Button("获取票信息")
         with gr.Column(visible=False) as inner:
